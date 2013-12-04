@@ -1,0 +1,669 @@
+*{
+	margin:0;
+}
+html{
+	background-color:#212721;
+	color:white;
+}
+.greybghtml{
+	background-color:#cbcbcb;
+}
+.vicciblackbghtml{
+	background-color:#212721;
+}
+.whitebghtml{
+	background-color:white;
+}
+body{
+	font-family: 'oldSans', sans-serif;
+}
+.centered {
+	position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50%;
+  margin-left: -50%;
+}
+@font-face{
+	font-family: 'oldSans';
+	src: url('font/old_sans_black/OldSansBlack.tff')
+		format('truetype');
+	
+}
+/*******************************************************************************************************************************
+HEADER
+*******************************************************************************************************************************/
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+
+.header{
+	position:relative;
+	top:0;
+	height:50px;
+	width:100%; /*device width?*/
+background-color:#212721;
+	z-index:100;
+	font-size:.5em;
+}
+.title{
+	overflow:hidden;
+	display:inline-block;
+	height:inherit;
+	white-space:nowrap;
+}
+.button{
+	width:50px;
+	height:100%;
+	position:relative;
+}
+.button-left{
+	float:left;
+	/*border-right:solid 1px white;*/
+}
+.button-right{
+	float:right;
+	/*border-left:solid 1px white;*/
+}
+.button img{
+}
+.header h1{
+	left:50%;
+	display:inline-block;
+	text-transform:uppercase;
+	position:absolute;
+	top:30%;
+}
+
+
+
+/*#skeuocard{
+	position:absolute;
+	bottom:0;
+}*/
+
+.coverdiv{
+}
+.content-wrapper{
+	position:relative;
+	height:100%;
+	width:100%;
+	background-color:#cbcbcb;
+}
+ul {
+	list-style:none;
+	padding:0;
+}
+.event-li{
+	width:100%;
+	height:200px;
+	position:relative;
+	font-size:.8em;
+	margin-bottom:1px;
+}
+.event-li:hover{
+	cursor:pointer;
+}
+li>a {
+	position:relative;
+    display: block;
+	color:white;
+    text-decoration: none;
+    width: 100%;
+	height:100%;
+}
+.event-info-wrapper{
+	position:absolute;
+	bottom:0;
+	height:40%;
+	width:100%;
+	overflow:hidden;
+	text-transform:uppercase;
+}
+.event-title{
+	font-size:1.5em;
+	text-shadow: 1px 1px 1px #212721; 
+}
+.indent{
+	margin-left:10%;
+}
+.text-padding{
+	padding:5px 0;
+}
+.event-details-wrapper{
+	position:relative;
+	background-color:rgba(0,0,0,.5);
+	font-size:.9em;
+	height:100%;
+}
+.event-date{
+	padding-right:10px;
+}
+.shop-icon{
+	font-size:1.2em;
+	position:absolute;
+	right:5px;
+	top:8px;
+}
+.shop-icon:after{
+	content: "\2192 ";
+}
+
+
+
+.category-li{
+	position:relative;
+	margin:8px 5px;
+	height:180px;
+	display:block;
+}
+.title-banner{
+	border-top:solid 1px rgba(203,203,203, .5);
+	position:absolute;
+	bottom:0;
+	width:100%;
+	background-color:rgba(0,0,0,.5);
+	text-transform:uppercase;
+
+	font-size:1em;
+}
+.title-banner h4{
+	padding:10px;
+}
+
+
+
+.merch-li{
+	-moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+	display:inline-block;
+	height:225px;
+	position:relative;
+	width:50%;
+	cursor:pointer;
+}
+.merch-li:nth-child(even){
+	border-left:solid 1px #212721;
+}
+.merch-title{
+	whitespace:nowrap;
+	overflow:hidden;
+}
+.merch-price{
+	float:right;
+	margin-right:5%;
+}
+.merch-details-wrapper{
+	background-color:rgba(0,0,0,.5);
+	font-size:1em;
+	width:100%;
+	position:absolute;
+	bottom:0;
+}
+
+
+
+
+#merch-item-image{
+	width:100%;
+	height:350px;
+}
+#merch-item-details{
+	position:relative;
+	text-align:left;
+}
+#size-quantity-price-div{
+	height:34px;
+	width:100%;
+	margin:20px 0;
+}
+.styled-select select{
+	width: 100%;
+   height: 100%;
+	text-transform:capitalize;
+	color:#212721;
+	background: transparent;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   -webkit-appearance: none;
+}
+.styled-select {
+	margin-left:8%;
+	width: 30%;
+   height: 100%;
+   overflow: hidden;
+   background: url(../img/vicci-logo.png) no-repeat right white;
+	background-size: 30px;
+float:left;
+}
+.styled-input{
+	margin-left:8%;
+	position:relative;
+	top:0;
+	width: 15%;
+   height: 100%;
+	display:inline-block;
+}
+input[name="quantity"]{
+	height:100%;
+	width:100%;
+	position:relative;
+	top:0;
+	display:inline-block;
+	border: 0;
+	padding:0;
+	font-size:1em;
+	text-align:center;
+}
+#size-quantity-price-div h3{
+	margin-left:8%;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:1.5em;
+}
+#button-details-div{
+	width:80%;
+	margin:15px auto;
+	text-align:center;
+}
+#button-details-div button{
+	height:34px;
+	width:100%;
+	background: white;
+	margin-bottom:15px;
+	text-transform:uppercase;
+}
+
+.circleBase {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    behavior: url(PIE.htc);
+	background:#ff4f02;
+	position:absolute;
+	width:28%;
+	height:28%;
+	color:white;
+	top:8px;
+	right:4px;
+	text-align:center;
+}
+.circleBase span{
+
+}
+#cart-view-wrapper{
+	overflow:auto;
+}
+#cart-content-wrapper{
+	position:relative;
+	margin-top:50px;
+}
+#cart-list-wrapper{
+	position:relative;
+	color:#818181;
+}
+.cart-li{
+	background-color:white;
+	position:relative;
+	height: 100px;
+	border-bottom:solid 1px black;
+	font-size:.8em;
+}
+#cart-item-image{
+	height: 100px;
+	width:85px;
+}
+#cart-item-details{
+	margin-left: 90px;
+	position:absolute;
+	top:30%;
+}
+#item-name-container{
+	overflow:hidden;
+	width:170px;
+	display:inline-block;
+	/*white-space:nowrap;*/
+}
+.cart-quantity{
+	display:inline-block;
+}
+.edit-quantity-input input{
+	background:#f2f2f2;
+	border:solid 1px #ff4f02;
+	width:40px;
+}
+.delete-button{
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:inline-block;
+	width:30px;
+	height:30px;
+}
+.delete-button img{
+	width:100%;
+}
+#total-price-container{
+border:solid 1px yellow
+	font-size:1.3em;
+}
+
+
+.vicciorange{
+	color:#ff4f02;
+}
+.vicciblue{
+	color:#009cde;
+}
+.login{
+	background: transparent;
+	width:100%;
+	padding:10px;
+}
+#styled-password-input{
+	position:relative;
+	background:white;
+	height:30px;
+}
+#pw-image{
+	position:absolute;
+	right:0;
+}
+#pw-image:hover{
+	cursor:pointer;
+}
+fieldset[class='pw']>*{
+	margin:20px;
+}
+fieldset p{
+	text-align:left;
+	color:#212721;
+}
+fieldset p span{
+	display:block;
+	margin-bottom:8px;
+}
+#login-button{
+	background-color:#414141;
+}
+#loginlabel{
+	color: #009cde;
+	text-transform:uppercase;
+	float:right;
+	font-size:.75em;
+}
+#loginlabel:hover{
+	cursor:pointer;
+}
+
+
+
+
+.page-button{
+	text-transform:uppercase;
+	font-size:1.5em;
+	padding:6px;
+	margin:auto;
+	color:white;
+	width:100%;
+	background: #009cde;
+}
+#cart-footer{	
+	position:fixed;
+}
+.footer{
+	width:100%;
+	background-color:#f2f2f2;
+	color:#212721;
+	bottom:0;
+}
+.footer span{
+	display:block;
+}
+.cost-totaling{
+	font-size:.85em;
+	border-bottom:solid 1px #979797;
+	color:#979797;
+}
+.cost-totaling span{	
+	padding:0 0 2px 0;
+}
+.footer-content{
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	padding:8px 15px;
+}
+.footer-content>div{	
+	position:relative;
+	width:100%;
+}
+.sum-container span{
+	font-size:1.1em;
+	padding:3px 0;
+}
+.cost-total{
+	position:absolute;
+	right:0;
+	top:0;
+}
+.cost-type{
+	
+}
+
+
+#check-out-container{
+	background-color:white;
+	position:relative;
+}
+#address-buttons{
+	color:#212721;
+	position:relative;
+}
+.address-button{
+	position:relative;
+	padding:8px 15px;
+	border-bottom:solid 1px #cbcbcb;
+}
+.address-button div{
+
+}
+.address-button h4{	
+	text-transform:uppercase;
+}
+.address-button p{
+	font-size:.8em;
+}
+.next-arrow{
+	right:10px;
+	top:35%;
+	position:absolute;
+	height:25px;
+}
+
+
+
+
+#address-content-wrapper{
+}
+#add-address-button{
+	position:relative;
+	margin:0 auto;
+	height:100px;
+	width:100%;
+	background-color:white;
+	-webkit-border-bottom-right-radius: 6px;
+    -moz-border-bottom-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+    -moz-border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+#add-address-button div{
+	position:relative;
+	width:25px;
+	top:65px;
+	margin:0 auto;
+}
+#addresses-container{	
+	color:#212721;
+}
+.address-li{
+	height:50px;
+	width:100%;
+	position:relative;
+	border-bottom:solid 1px #cbcbcb;
+	background-color:white;
+	font-size:.8em;
+}
+.address-edit-icon{
+	right:0;
+}
+.address-edit-icon:hover{
+	cursor:pointer;
+}
+.address-info{
+	left:5px;
+}
+#addresses-container div{
+	position:absolute;
+	display:inline-block;
+}
+#add-address-button img{
+	width:25px;
+}
+#choose-address-content{
+	width:80%;
+	position:relative;
+	top:2em;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+#new-address-content-wrapper{
+	position:relative;
+	height:100%;
+	widht:100%;
+	background-color:#cbcbcb;
+}
+fieldset{
+	border:none;
+}
+fieldset label, fieldset>input{
+	display: block;
+	padding:10px 0;
+}
+fieldset div>div{
+	display:inline-block;
+}
+fieldset label{
+	color:#212721;
+	text-transform:uppercase;
+}
+fieldset input{
+	height:30px;
+}
+fieldset>input{
+	width:100%;
+}
+fieldset div div{
+	padding-right:8px;
+}
+input[name="city"]{
+	width:100px;
+}
+input[name="state"]{
+	width:75px;
+}
+div[name="zip"]{
+	float:right;
+}
+input[name="zip"]{
+	width:85px;
+}
+div[select="country"]{
+   overflow: hidden;
+	width:100%;
+   background: url(../img/vicci-logo.png) no-repeat right white;
+	background-size: 30px;
+	height:30px;
+}
+select[name="country"]{
+	width: 100%;
+   height: 100%;
+	text-transform:capitalize;
+	color:#212721;
+	background: transparent;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   -webkit-appearance: none;
+}
+#address-button-container{
+	margin-top:10px;
+	position:relative;
+	width:92%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#delete-address{
+	margin-top:5px;
+	background-color:#212721;
+}
+/***************************************************************************************************************************
+page transitions
+***************************************************************************************************************************/
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform:translate3d(0,0,0);
+}
+ 
+.stage-center {
+    top: 0;
+    left: 0;
+}
+ 
+.stage-left {
+    left: -100%;
+}
+ 
+.stage-right {
+    left: 100%;
+}
+ 
+.transition {
+    -moz-transition-duration: .375s;
+    -webkit-transition-duration: .375s;
+    -o-transition-duration: .375s;
+}
