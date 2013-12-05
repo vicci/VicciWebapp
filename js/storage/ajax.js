@@ -67,7 +67,7 @@ var ajaxCalls = function(successCallback, errorCallback) {
 				url: this.api_login,
 				success: function(response) {
 					var rc = response.resultCode
-
+console.log(response)
 					if (rc == 0){
 						if (response.sessionId){
 							window.localStorage.setItem("sessionid", JSON.stringify(response.sessionId))
@@ -79,7 +79,8 @@ var ajaxCalls = function(successCallback, errorCallback) {
 						}
 					}
 					else if (rc == 2){
-						alert(response.resultString)
+						if (response.resultString === "Your account is not yet verified. Please check your inbox.")
+							alert(response.resultString + "\nConfirmation may be in spam folder.")
 					}
 					else
 						alert("There was a problem logging in. Try again")
