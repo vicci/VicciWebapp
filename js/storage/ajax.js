@@ -74,7 +74,7 @@ var ajaxCalls = function(successCallback, errorCallback) {
 							window.localStorage.setItem("customerid", JSON.stringify(response.customerId))
 							callback()
 						}else{
-							alert(response.resultString)
+							alert(response.resultString + "\nYou may need to check spam folder.")
 							$("#loginlabel").trigger("click")
 						}
 					}
