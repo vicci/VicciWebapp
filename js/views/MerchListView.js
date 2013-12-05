@@ -20,7 +20,7 @@ var MerchListView = function(merch) {
 			"<li id='" + m.itemId + "' class='merch-li'" +
 			" style='background:url(" + m.itemImage + ") no-repeat center; -webkit-background-size:cover;" +
 			"-moz-background-size:cover; -o-background-size:cover; background-size:cover;'>" +
-				"<div class='merch-details-wrapper text-padding'>" +
+				"<div id='" + m.itemId + "' class='merch-details-wrapper text-padding'>" +
 					"<h4 id='" + m.itemId + "' class='merch-title'>" +
 						m.itemName +
 					"</h4>" +

@@ -9,7 +9,7 @@ var LoginView = function() {
 		var header = headerHTML("login");
 
 		var html = 
-			"<div id='login-content-wrapper' class='content-wrapper'>" +
+			"<div id='login-content-wrapper' class=''>" +
 				header +		
 				
 				"<fieldset class='pw'>  " +

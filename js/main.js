@@ -517,7 +517,7 @@ console.log(event)
 		}else if ($('.stage-center #check-out-container').length > 0){
 			$('html').attr("class", "whitebghtml");
 		}else if ($('.stage-center #login-content-wrapper').length > 0){
-			$('html').attr("class", "greybghtml");
+			$('html').attr("class", "whitebghtml");
 		}
 	
 		this.responsiveModifications()
