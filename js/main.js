@@ -124,8 +124,8 @@ console.log(event)
 			login.isSignIn = 0
 			login.isGuest = 1
 
-
 			self.ajax.login(login, function(){
+				ga('send', 'event', 'email submit', 'click')
 				var hash = window.location.hash
 				window.location.hash = "#checkout/" + hash.split("/")[1]
 			})
@@ -207,6 +207,7 @@ console.log(event)
 
 			if (event.srcElement.className == "address-edit-icon"){
 				//self.slidePage(new EditAddressView(address).render());
+				ga('send', 'event', 'Edit-Address', 'click', type)/***************************google analytics***********************/
 				window.location.hash = window.location.hash + "/edit/" + id
 			}else{
 				var address = self.store.retrieveAddress(id)
@@ -219,7 +220,9 @@ console.log(event)
 			window.location.hash = "#addresses/" + window.location.hash.split("/")[1] + "/" + type
 		});
 		$('body').on('click', '#add-address-button', function(event){
-			window.location.hash = window.location.hash + "/new"
+			hash = window.location.hash
+			window.location.hash = hash + "/new"
+			ga('send', 'event', 'Add-Address', 'click', hash)/***************************google analytics***********************/
 		});
 		$('body').on('click', '#save-address', function(event){
 			var address =  parseNewAddress()
@@ -228,6 +231,7 @@ console.log(event)
 				self.store.addAddress(address)
 				var hash = window.location.hash
 				window.location.hash = hash.substring(0, hash.lastIndexOf("/"))
+				ga('send', 'event', 'Save-Address', 'click', hash)/***************************google analytics***********************/
 			}else{
 				alert("Required Fields Missing")
 			}
@@ -268,7 +272,7 @@ console.log(event)
 				}
 				alert("Successfully added to cart! \n Hit the cart button to checkout.")
 				
-				ga('send', 'event', 'Valid-Add-To-Cart', 'click', merchItem.itemName, parseInt(merchItem.quantity));
+				ga('send', 'event', 'Valid-Add-To-Cart', 'click', merchItem.itemName, parseInt(merchItem.quantity));/***************************google analytics***********************/
 			}else{
 				alert("Size and Quantity Values Required")
 			}
@@ -319,6 +323,7 @@ console.log(event)
 			var transaction = self.store.getCheckoutAddress();
 			//verify they exist
 			if (transaction == null || typeof transaction == undefined){
+				ga('send', 'event', 'Place-Order-Fail', 'click', 'missing shipping/billing')/***************************google analytics***********************/
 				alert("Shipping and Billing Address Required")
 				return
 			}
@@ -326,6 +331,7 @@ console.log(event)
 			//get cartItems / verify its not empty / add it to payment object
 			var cart = self.store.retrieveCart(window.location.hash.split("/")[1])
 			if (cart == null || typeof cart == undefined){
+				ga('send', 'event', 'Place-Order-Fail', 'click', 'No items in cart On Place-Order Click')/***************************google analytics***********************/
 				alert("No Items in Cart")
 				return
 			}
@@ -337,6 +343,7 @@ console.log(event)
 			transaction.customerId = self.store.getCustomerId()
 			transaction.sessionId = self.store.getSessionId()
 			if (!transaction.sessionId || !transaction.customerId){
+				ga('send', 'event', 'Place-Order-Fail', 'click', 'No Session ID On Place-Order Click')/***************************google analytics***********************/
 				alert("Not Logged In")
 				return
 			}
@@ -381,6 +388,7 @@ console.log(event)
 				}
 			}else{
 				alert("Valid Card Number, Security Code and Name are required.")
+				ga('send', 'event', 'Place-Order-Fail', 'click', 'Invalid Card/CCV/Name field(s) On Place-Order Click')/***************************google analytics***********************/
 				return false
 			}
 		}
@@ -390,6 +398,7 @@ console.log(event)
 			t.expirationYear = braintree.encrypt(card.find(".ccjs-year").val())
 		}else{
 			alert("Valid Card Expiration is required.")
+			ga('send', 'event', 'Place-Order-Fail', 'click', 'Invalid card expiration on Place-Order Click')/***************************google analytics***********************/
 			return false
 		}
 		t.venmo_sdk_session = braintree.encrypt("dummy-value")
