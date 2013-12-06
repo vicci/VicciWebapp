@@ -9,6 +9,7 @@ var MerchItemView = function(merch) {
     this.render = function() {
 		var header = headerHTML("merchitem", merch);
 		var html = header + 
+			"<div id='merch-item-content' >" +
 				"<div id='merch-item-image'" +
 				" style='background:url(" + merch.itemImage + ") no-repeat center; -webkit-background-size:cover;" +
 				"-moz-background-size:cover; -o-background-size:cover; background-size:cover;'>" +
