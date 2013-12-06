@@ -225,7 +225,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
     }
 	//window.localStorage.removeItem("billingaddress")
 //window.localStorage.removeItem("shippingaddress")
-//window.localStorage.removeItem("sessionid")
+window.localStorage.removeItem("sessionid")
 //window.localStorage.removeItem("customerid")
 //window.localStorage.removeItem("addresses")
 	//window.localStorage.clear()

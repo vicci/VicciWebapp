@@ -97,14 +97,38 @@ console.log(event)
 		$('body').on('click', '#checkout', function(event) { 
 			ga('send', 'event', 'Checkout', 'click', $('#cart-total-label').text());
 			var hash = window.location.hash
-			if (self.store.getSessionId()){
-				var cart = self.store.retrieveCart(hash.split("/")[1])
-				if (cart.length > 0)
-					window.location.hash = "#checkout/" + hash.split("/")[1]
-				else
-					alert("No items in cart to checkout with!")
+			var cart = self.store.retrieveCart(hash.split("/")[1])
+			if (!cart)
+				alert("No items in cart to checkout with!")
+			else if (self.store.getSessionId()){
+				window.location.hash = "#checkout/" + hash.split("/")[1]		
 			}else
 				window.location.hash = "#login/" + hash.split("/")[1]
+		});
+/***************************************************************************************
+
+					GUEST LOGIN HANDLER
+
+***************************************************************************************/
+		$('body').on('click', '#guest-login-button', function(event) {
+			var login = {}
+
+			login.emailId = $("input[name='email']").val()
+			if (!login.emailId.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)){
+				alert("Not a valid email")
+				return
+			}
+
+			login.loginProvider = 1
+			login.userId = ""
+			login.isSignIn = 0
+			login.isGuest = 1
+
+
+			self.ajax.login(login, function(){
+				var hash = window.location.hash
+				window.location.hash = "#checkout/" + hash.split("/")[1]
+			})
 		});
 /***************************************************************************************
 
@@ -161,6 +185,11 @@ console.log(event)
 				$(this).attr("val", "0")
 			}
 		});
+/***************************************************************************************
+
+					PW SHOW/HIDE TOGGLE HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#pw-image', function(event) {
 			if ($("input[name='password']").attr("type") == "password"){
   				$("input[name='password']").get(0).type='text';
@@ -518,6 +547,9 @@ console.log(event)
 			$('html').attr("class", "whitebghtml");
 		}else if ($('.stage-center #login-content-wrapper').length > 0){
 			$('html').attr("class", "whitebghtml");
+		}else if ($('.stage-center #cat-content-wrapper').length > 0){
+
+			$('html').attr("class", "greybghtml");
 		}
 	
 		this.responsiveModifications()
