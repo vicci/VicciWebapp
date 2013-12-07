@@ -435,6 +435,12 @@ border:solid 1px yellow
 }
 
 
+@media all and (min-width: 500px) {
+	.pw{
+		width:500px;
+		margin:0 auto;
+	}
+}
 .vicciorange{
 	color:#ff4f02;
 }
@@ -462,7 +468,7 @@ fieldset[class='pw']>*{
 	margin:20px;
 }
 fieldset p{
-	text-align:left;
+	text-align:center;
 	color:#212721;
 }
 fieldset p span{
