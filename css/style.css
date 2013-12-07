@@ -482,10 +482,15 @@ fieldset p span{
 #login-button{
 	background-color:#414141;
 }
-#loginlabel{
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.loginlabel{
 	color: #009cde;
 	text-transform:uppercase;
-	float:right;
 	font-size:.75em;
 }
 #loginlabel:hover{

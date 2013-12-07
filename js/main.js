@@ -172,7 +172,7 @@ console.log(event)
 					SIGN-IN/SIGN-UP TOGGLE HANDLER
 
 ***************************************************************************************/
-		$('body').on('click', '#loginlabel', function(event) {
+		$('body').on('click', '#memberloginlabel', function(event) {
 			if ($(this).attr("val") == 0){
 				$(this).text("[New User]")
 				$("#login-button").text("Sign In")
@@ -183,6 +183,20 @@ console.log(event)
 				$("#login-button").text("Sign Up")
 				$("#login-button").css("background-color", "#414141")
 				$(this).attr("val", "0")
+			}
+		});
+/***************************************************************************************
+
+					GUEST LABEL TOGGLE HANDLER
+
+***************************************************************************************/
+		$('body').on('click', '#guestloginlabel', function(event) {
+			if ($(this).attr("val") == 0){
+				$('#guest-sign-in').hide()
+				$('#member-sign-in').show()
+			}else{
+				$('#member-sign-in').hide()
+				$('#guest-sign-in').show()
 			}
 		});
 /***************************************************************************************
@@ -557,7 +571,6 @@ console.log(event)
 		}else if ($('.stage-center #login-content-wrapper').length > 0){
 			$('html').attr("class", "whitebghtml");
 		}else if ($('.stage-center #cat-content-wrapper').length > 0){
-
 			$('html').attr("class", "greybghtml");
 		}
 	
