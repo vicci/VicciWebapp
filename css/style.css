@@ -357,6 +357,7 @@ input[name="quantity"]{
 	text-transform:uppercase;
 	color:white;
 	font-size:.8em;
+	border:none;
 }
 
 .circleBase {
@@ -435,9 +436,9 @@ border:solid 1px yellow
 }
 
 
-@media all and (min-width: 500px) {
+@media all and (min-width: 400px) {
 	.pw{
-		width:500px;
+		width:400px;
 		margin:0 auto;
 	}
 }
@@ -451,11 +452,14 @@ border:solid 1px yellow
 	background: transparent;
 	width:100%;
 	padding:10px;
+	-webkit-appearance:none;
+	border-style:none;
 }
 #styled-password-input{
 	position:relative;
-	background:#c7c7c7;
+	background:white;
 	height:30px;
+	border:solid 1px #212721;
 }
 #pw-image{
 	position:absolute;
@@ -499,6 +503,7 @@ fieldset p span{
 	color:white;
 	width:100%;
 	background: #009cde;
+	border-style: none;
 }
 #cart-footer{	
 	position:fixed;
