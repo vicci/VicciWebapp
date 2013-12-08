@@ -583,10 +583,10 @@ console.log(event)
 
 			var cartTotal = this.calcCartCost(cart)
 			var shipTotal = this.calcShippingCost(cart)
-			$('#cart-total').text("$" + cartTotal)
-			$('#ship-total').text("$" + shipTotal)
+			$('#cart-total').text("$" + parseFloat(Math.round(cartTotal * 100) / 100).toFixed(2))
+			$('#ship-total').text("$" + parseFloat(Math.round(shipTotal * 100) / 100).toFixed(2))
 			var orderTotal = cartTotal + shipTotal
-			$('#order-total').text("$" + orderTotal)
+			$('#order-total').text("$" + parseFloat(Math.round(orderTotal * 100) / 100).toFixed(2))
 
 			creditcardjs()
 		}
