@@ -215,6 +215,11 @@ console.log(event)
 				$("#pw-image").attr("title", "Show Password");
 			}
 		});
+/***************************************************************************************
+
+					SELECT ADDRESS HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '.address-li', function(event) {
 			var type = window.location.hash.split("/")[2]
 			var id = $(this).attr("aid")
@@ -229,27 +234,53 @@ console.log(event)
 				window.location.hash = "#checkout/" + window.location.hash.split("/")[1]
 			}
 		});
+/***************************************************************************************
+
+					ADD ADDRESS INFO BUTTON HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '.address-button', function(event){
 			var type = $(this).attr("type")
 			window.location.hash = "#addresses/" + window.location.hash.split("/")[1] + "/" + type
 		});
+/***************************************************************************************
+
+					ADD ADDRESS BUTTON HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#add-address-button', function(event){
 			hash = window.location.hash
 			window.location.hash = hash + "/new"
 			ga('send', 'event', 'Add-Address', 'click', hash)/***************************google analytics***********************/
 		});
+/***************************************************************************************
+
+					SAVE ADDRESS BUTTON HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#save-address', function(event){
 			var address =  parseNewAddress()
 
 			if (address.valid){
-				self.store.addAddress(address)
+				var id = self.store.addAddress(address)
 				var hash = window.location.hash
-				window.location.hash = hash.substring(0, hash.lastIndexOf("/"))
+				var type = hash.split("/")[2]
+
+				var address = self.store.retrieveAddress(id)
+				self.store.setAddress(type, address)
+				window.location.hash = "#checkout/" + window.location.hash.split("/")[1]
+
+				$(".address-li").trigger("click")
 				ga('send', 'event', 'Save-Address', 'click', hash)/***************************google analytics***********************/
 			}else{
 				alert("Required Fields Missing")
 			}
 		});
+/***************************************************************************************
+
+					SAVE EDITED ADDRESS BUTTON HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#save-edited-address', function(event){
 			var address =  parseNewAddress()
 
@@ -262,6 +293,11 @@ console.log(event)
 				alert("Required Fields Missing")
 			}
 		});
+/***************************************************************************************
+
+					DELETE ADDRESS HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#delete-address', function(event){	
 			var hash = window.location.hash
 			self.store.deleteAddress(hash	.split("/")[4])

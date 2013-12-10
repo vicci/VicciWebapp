@@ -124,6 +124,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
 		}
 
 		window.localStorage.setItem("addresses", JSON.stringify(addresses))
+		return address.addressid
 	}
 
 	this.changeAddress = function(id, address){
