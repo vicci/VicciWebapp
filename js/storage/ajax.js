@@ -81,6 +81,10 @@ console.log(response)
 					else if (rc == 2){
 						if (response.resultString === "Your account is not yet verified. Please check your inbox.")
 							alert(response.resultString + "\nConfirmation may be in spam folder.")
+						else if (response.resultString === "Please provide valid email.")
+							alert(response.resultString + "\nBe sure there are no spaces included in your email.")
+						else
+							alert(response.resultString)
 					}
 					else
 						alert("There was a problem logging in. Try again")

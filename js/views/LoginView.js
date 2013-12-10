@@ -23,7 +23,7 @@ var LoginView = function() {
 						"<span class='vicciorange'>Which email will you want your order confirmation sent to?</span>" +
 					"</p>" +
 					"<div id='styled-password-input'>" +
-						"<input class='login' placeholder='EMAIL' type='text' id='emailinput' name='email' />"  +
+						"<input class='login' placeholder='EMAIL' type='text' id='guestemailinput' name='email' />"  +
 					"</div>" +
 					"<div id='signin-button-container'>" +
 						"<button id='guest-login-button' class='page-button up' type='button'>Continue</button>" +
@@ -33,7 +33,7 @@ var LoginView = function() {
 				"</fieldset>" + 
 				"<fieldset id='member-sign-in' style='display:none' class='pw'>" +
 					"<div id='styled-password-input'>" +
-						"<input class='login' placeholder='EMAIL' type='text' id='emailinput' name='email' />"  +
+						"<input class='login' placeholder='EMAIL' type='text' id='accountemailinput' name='email' />"  +
 					"</div>" +
 					"<div id='styled-password-input'>" +
 						"<img id='pw-image' src='img/eyeopen.png' title='Show Password'/>" +
