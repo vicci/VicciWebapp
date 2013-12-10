@@ -113,7 +113,7 @@ console.log(event)
 		$('body').on('click', '#guest-login-button', function(event) {
 			var login = {}
 
-			login.emailId = $("#guestemailinput']").val()
+			login.emailId = $("#guestemailinput").val()
 			if (!login.emailId.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)){
 				alert("Not a valid email")
 				return
