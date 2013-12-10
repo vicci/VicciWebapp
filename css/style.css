@@ -133,7 +133,7 @@ ul {
 		position:relative;
 		margin:5px;
 	}
-	ul{
+	ul[class~="responsive"]{
 		width:360px;
 		list-style:none;
 		padding:0;
@@ -141,7 +141,7 @@ ul {
 	}
 }
 @media all and (min-width: 720px) {
-	ul{
+	ul[class~="responsive"]{
 		width:720px;
 		list-style:none;
 		padding:0;
@@ -149,7 +149,7 @@ ul {
 	}
 }
 @media all and (min-width: 1080px) {
-	ul{
+	ul[class~="responsive"]{
 		width:1080px;
 		list-style:none;
 		padding:0;

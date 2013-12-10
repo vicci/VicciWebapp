@@ -12,7 +12,7 @@ var MerchListView = function(merch) {
 		var html = 
 			"<div id='' class='content-wrapper'>" +
 				header + 
-				"<ul class='merch-list'>"
+				"<ul class='merch-list responsive'>"
 
 		for (var i=0; i < merchandise.length; i++) {
        		m = merchandise[i];

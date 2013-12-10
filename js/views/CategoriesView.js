@@ -10,7 +10,7 @@ var CategoriesView = function(data) {
 		var html = 
 			"<div id='cat-content-wrapper' class='content-wrapper'>" +
 				header + 
-				"<ul class='category-list'>"
+				"<ul class='category-list responsive'>"
 		for (var i=0; i < data.length; i++) {
        		c = data[i];
 			html += 

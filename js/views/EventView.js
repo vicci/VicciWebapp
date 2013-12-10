@@ -10,7 +10,7 @@ var EventView = function(data) {
 		var header = headerHTML("events");
 		var html = header + 
 			"<div id='' class='content-wrapper'>" +
-				"<ul class='event-list'>"
+				"<ul class='event-list responsive'>"
 		for (var i=0; i < events.length; i++) {
        		e = events[i];
 			html += 
