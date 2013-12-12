@@ -572,6 +572,7 @@ console.log(event)
 
 	pageModifications: function(){
 		var self = this
+		var hash = window.location.hash
 		var ids = window.location.hash.split("/")
 		var cart = this.store.retrieveCart(ids[1])
 
@@ -627,6 +628,16 @@ console.log(event)
 			$('#order-total').text("$" + parseFloat(Math.round(orderTotal * 100) / 100).toFixed(2))
 
 			creditcardjs()
+		}
+
+		hashVal = hash.split("/")
+		if (hashVal[0] === "#merch"){
+			e = self.store.getEvent(hashVal[1])
+			var html = "<meta property='og:image' content='" + e.eventImage + "' />" +
+						"<meta property='og:title' content='" + e.eventTitle + "' />" +
+						"<meta property='og:description' content='Get exclusive event merchandise on Vicci for "+ e.eventTitle + ".' />"
+
+			$('head').append(html)
 		}
 	},
 

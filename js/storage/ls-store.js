@@ -4,6 +4,13 @@ var LocalStorageStore = function(successCallback, errorCallback) {
 		var events = JSON.parse(window.localStorage.getItem("events"))
 		return events
 	}
+	
+	this.getEvent = function(id, callback){
+		var e = this.eventData();
+		return jQuery.grep(e.events, function(element,index){
+			return element.eventId == id
+		})[0];
+	}	
 
 	this.getMerchList = function(eventid, catid){
 		return JSON.parse(window.localStorage.getItem(String(eventid)+catid));
