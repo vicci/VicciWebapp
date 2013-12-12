@@ -114,7 +114,7 @@ console.log(event)
 			var login = {}
 
 			login.emailId = $("#guestemailinput").val()
-			if (!login.emailId.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)){
+			if (!login.emailId.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\s*$/)){
 				alert("Not a valid email")
 				return
 			}
@@ -386,13 +386,13 @@ console.log(event)
 				return
 			}
 			transaction.cartItems = cart;
+			transaction.eventId = window.location.hash.split("/")[1]
 			transaction.itemTotal = self.calcCartCost(cart)
 			transaction.shippingPrice = self.calcShippingCost(cart)
-			transaction.eventId = window.location.hash.split("/")[1]
-			
-			transaction.customerId = self.store.getCustomerId()
+	
+			transaction.customerId = "" //self.store.getCustomerId() <--- this doesn't have a value for guest login
 			transaction.sessionId = self.store.getSessionId()
-			if (!transaction.sessionId || !transaction.customerId){
+			if (!transaction.sessionId){
 				ga('send', 'event', 'Place-Order-Fail', 'click', 'No Session ID On Place-Order Click')/***************************google analytics***********************/
 				alert("Not Logged In")
 				return
@@ -466,6 +466,8 @@ console.log(event)
 	},
 
 	calcShippingCost: function(cart){
+		if (window.location.hash.split("/")[1])
+			return 0
 		var weight = 0;
 		if (cart){
 			for (var i = 0; i < cart.length; i++){
