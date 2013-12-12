@@ -603,8 +603,8 @@ fieldset p span{
 }
 #add-address-button div{
 	position:relative;
-	width:25px;
-	top:65px;
+	width:45px;
+	top:45px;
 	margin:0 auto;
 }
 #addresses-container{	
@@ -618,6 +618,14 @@ fieldset p span{
 	background-color:white;
 	font-size:.8em;
 }
+.address-li:hover{
+ cursor:pointer;
+}
+.address-use-icon{
+	position:relative;
+	height:45px;
+	left:5px;
+}
 .address-edit-icon{
 	right:0;
 }
@@ -625,14 +633,14 @@ fieldset p span{
 	cursor:pointer;
 }
 .address-info{
-	left:5px;
+	left:55px;
 }
 #addresses-container div{
 	position:absolute;
 	display:inline-block;
 }
 #add-address-button img{
-	width:25px;
+	width:45px;
 }
 #choose-address-content{
 	width:80%;

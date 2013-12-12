@@ -37,6 +37,9 @@ var AddressView = function(addresses) {
 			var a = addresses[i]			
 			html += 
 				"<li aid='" + a.addressid + "' class='address-li'>" +
+					"<div class='address-use-icon'>" +
+						"<img class='address-use-icon' src='img/useLocation.png' />" +
+					"</div>" +
 					"<div class='address-edit-icon'>" +
 						"<img class='address-edit-icon' src='img/edit.png' />" +
 					"</div>" +
