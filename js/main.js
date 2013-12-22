@@ -304,6 +304,11 @@ console.log(event)
 			hash = hash.substring(0, hash.lastIndexOf("/"))
 			window.location.hash = hash.substring(0, hash.lastIndexOf("/"))
 		});
+/***************************************************************************************
+
+					ADD TO CART HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#add-to-cart', function(event) {
 			var sizing = $(".stage-center select[name='sizing']")
 			var quantity = $(".stage-center input[name='quantity']")
@@ -327,6 +332,11 @@ console.log(event)
 				alert("Size and Quantity Values Required")
 			}
 		});
+/***************************************************************************************
+
+					BACK BUTTON HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#back-button', function(event) {
 			var vars = window.location.hash.split("/")
 			var hash = ""
@@ -368,6 +378,11 @@ console.log(event)
 			}
 			//window.location.hash = self.priorView.pop()
 		});
+/***************************************************************************************
+
+					PLACE ORDER HANDLER
+
+***************************************************************************************/
 		$('body').on('click', '#place-order', function(event) {
 			//get inital transaction object with shippingAddress and billAddress member values
 			var transaction = self.store.getCheckoutAddress();
@@ -466,8 +481,8 @@ console.log(event)
 	},
 
 	calcShippingCost: function(cart){
-		if (window.location.hash.split("/")[1])
-			return 0
+		/*if (window.location.hash.split("/")[1])
+			return 0*/
 		var weight = 0;
 		if (cart){
 			for (var i = 0; i < cart.length; i++){
@@ -638,6 +653,8 @@ console.log(event)
 						"<meta property='og:description' content='Get exclusive event merchandise on Vicci for "+ e.eventTitle + ".' />"
 
 			$('head').append(html)
+		}else{//this is suppose to remove the meta tags but it's not working. 
+			$('head').remove($("meta[property~='og']"))
 		}
 	},
 

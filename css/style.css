@@ -260,9 +260,12 @@ li>a {
 	bottom:0;
 }
 
-
-
-
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    } 
+body {
+    top: 0px !important; 
+    }
 #merch-item-image{
 	width:100%;
 	height:350px;
