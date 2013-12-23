@@ -103,7 +103,7 @@ console.log(response)
 				success: function(response) {
 console.log(response)
 
-					if (response.resultCode = 0){
+					if (response.resultCode == 0){
 						successCallback()
 					}else{
 						errorCallback()
